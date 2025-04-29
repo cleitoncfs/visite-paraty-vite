@@ -1,0 +1,107 @@
+/* Variáveis de cor */
+:root {
+    --footer-blue-dark: #1e40af;
+    --footer-blue-light: #3b82f6;
+    --footer-link-hover: #93c5fd;
+}
+
+/* Estilos base */
+.footer {
+    background: linear-gradient(
+        to right,
+        var(--footer-blue-dark),
+        var(--footer-blue-light)
+    );
+    color: white;
+    padding: 30px 0;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Efeito de onda opcional no topo do footer */
+.footer::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 10px;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' fill='%23ffffff'/%3E%3C/svg%3E");
+    background-size: cover;
+    margin-top: -15px;
+}
+
+/* Conteúdo do footer */
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Textos */
+.footer-copyright {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.footer-credits {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+/* Link do desenvolvedor */
+.footer-link {
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.footer-link:hover {
+    color: var(--footer-link-hover);
+    transform: translateY(-1px);
+}
+
+.footer-link span {
+    border-bottom: 1px dashed transparent;
+    transition: border-color 0.3s;
+}
+
+.footer-link:hover span {
+    border-bottom-color: currentColor;
+}
+
+.link-icon {
+    font-size: 12px;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .footer {
+        padding: 25px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-copyright,
+    .footer-credits {
+        font-size: 13px;
+    }
+
+    .footer::before {
+        top: -8px;
+        height: 8px;
+    }
+}

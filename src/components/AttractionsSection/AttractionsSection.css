@@ -1,0 +1,48 @@
+.parallax {
+    position: relative;
+    overflow: hidden;
+    height: 60vh;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.parallax img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(70%);
+    transform: translate(-50%, -50%) translateY(20%);
+    transition: transform 0.5s ease-out, filter 0.3s ease;
+    will-change: transform;
+}
+
+.parallax:hover img {
+    transform: translate(-50%, -50%) translateY(0);
+    filter: brightness(85%);
+}
+
+.lista-atracoes {
+    columns: 2; /* Divide em 2 colunas */
+    gap: 20px;
+    padding-left: 30px;
+}
+
+.lista-atracoes li {
+    margin-bottom: 12px;
+    break-inside: avoid; /* Evita quebra entre itens */
+}
+
+@media (max-width: 768px) {
+    .parallax {
+        height: 40vh;
+    }
+
+    .lista-atracoes {
+        columns: 1; /* 1 coluna em mobile */
+        padding-left: 20px;
+    }
+}

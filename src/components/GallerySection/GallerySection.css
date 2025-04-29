@@ -1,0 +1,101 @@
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.gallery-item {
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+}
+
+.galeria img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Impede o scroll da página */
+}
+
+.lightbox-content {
+    max-width: 90%; /* Limita a largura da imagem */
+    max-height: 90%; /* Limita a altura da imagem */
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.5s ease;
+    object-fit: contain; /* Mantém a proporção da imagem */
+    display: block; /* Garante que o display seja block para centralização */
+}
+
+/* Ajuste para garantir que a imagem fique centralizada na tela, mesmo no mobile */
+@media (max-width: 768px) {
+    .lightbox-content {
+        max-width: 90%; /* Usar 90% da largura disponível */
+        max-height: 80%; /* Limitar a altura da imagem em 80% da altura da tela */
+    }
+
+    .lightbox-overlay {
+        padding: 10px;
+    }
+
+    .galeria {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas em tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .lightbox-content {
+        max-width: 90%; /* Usar 90% da largura disponível */
+        max-height: 90%; /* Limitar a altura da imagem em 90% da altura da tela */
+    }
+
+    .galeria {
+        grid-template-columns: 1fr; /* 1 coluna para telas muito pequenas */
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.lightbox-overlay .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.lightbox-overlay .close:hover {
+    color: #bbb;
+}
