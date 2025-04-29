@@ -50,6 +50,7 @@ h3::after {
 }
 
 .limita-secao {
+    width: 100%;
     max-width: 1024px;
     margin: 0 auto;
     padding: 0 20px;
@@ -75,6 +76,13 @@ ul {
 
 li {
     margin-bottom: 12px;
+}
+
+main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 /* Media Queries para mobile */

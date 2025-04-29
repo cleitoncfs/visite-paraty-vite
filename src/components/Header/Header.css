@@ -231,8 +231,14 @@ section {
 }
 
 @media (max-width: 1024px) {
+    body {
+        overflow-x: hidden; /* Impede que elementos empurrem a página para o lado */
+    }
+
     .header-container {
-        padding: 10px 20px; /* Ajustar o padding para dispositivos móveis */
+        width: 100%;
+        max-width: 100%;
+        padding: 10px 20px;
     }
 
     .logo {
@@ -240,9 +246,10 @@ section {
     }
 
     .mobile-nav {
-        top: 70px; /* Posição mais alta em tablets */
+        top: 70px; /* Mantém a posição do menu */
         width: 60%;
         max-width: 250px;
+        right: 0; /* Garante que o menu sempre esteja na posição correta */
     }
 }
 
