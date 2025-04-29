@@ -28,14 +28,15 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw; /* Garante que ocupe toda a largura da tela */
+    height: 100vh; /* Garante que ocupe toda a altura da tela */
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden; /* Impede o scroll da página */
+    padding: 10px; /* Adiciona um pequeno espaçamento para evitar problemas de layout */
 }
 
 .lightbox-content {
@@ -48,6 +49,14 @@
     animation: fadeIn 0.5s ease;
     object-fit: contain; /* Mantém a proporção da imagem */
     display: block; /* Garante que o display seja block para centralização */
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    display: block;
+    margin: auto;
 }
 
 /* Ajuste para garantir que a imagem fique centralizada na tela, mesmo no mobile */
@@ -68,12 +77,12 @@
 
 @media (max-width: 480px) {
     .lightbox-content {
-        max-width: 90%; /* Usar 90% da largura disponível */
-        max-height: 90%; /* Limitar a altura da imagem em 90% da altura da tela */
-    }
-
-    .galeria {
-        grid-template-columns: 1fr; /* 1 coluna para telas muito pequenas */
+        max-width: 90%;
+        max-height: 80vh;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
